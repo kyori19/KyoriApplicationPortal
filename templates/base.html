@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>!Template Error!</title>
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ url_for('static',filename='materialize.css') }}"
+    />
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo valign-wrapper">
+                    <img src="{{ url_for('static',filename='title-logo.png') }}" alt="title logo" height="80%" />
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    {% include "navigation.html" %}
+                </ul>
+                <ul class="sidenav" id="mobile-demo">
+                    {% include "navigation.html" %}
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+    <script src="{{ url_for('static',filename='materialize.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+
+</html>
