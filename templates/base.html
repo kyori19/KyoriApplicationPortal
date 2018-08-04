@@ -16,7 +16,7 @@
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 
-<body>
+<body class="grey darken-2">
     <header>
         <nav>
             <div class="nav-wrapper">
@@ -36,13 +36,13 @@
         </nav>
     </header>
 
-    {% block content %}{% endblock %}
-    <script src="{{ url_for('static',filename='materialize.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-        });
-    </script>
+        {% block content %}{% endblock %}
+        <script src="{{ url_for('static',filename='materialize.js') }}"></script>
+        <script>
+            $(document).ready(function () {
+                $('.sidenav').sidenav();
+            });
+        </script>
 </body>
 
 </html>
