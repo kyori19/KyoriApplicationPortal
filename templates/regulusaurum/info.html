@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% block content %} 
+
+{% if requireLogin == 0 %}
+<blockquote class="valign-wrapper">
+    <i class="material-icons small">info</i>
+    <span class="red-text">ログインが必要です！</span>
+</blockquote>
+{% endif %}
+
+<div class="row">
+    <div class="col s12">
+        <div class="card lime lighten-3 black-text">
+            <div class="card-content">
+                <p>
+                    下のテキストボックスにインスタンスのドメイン名を入れてボタンをクリックするとログインページに移動します。<br />
+                    このサービスではログインの際、<span class="red-text black">アカウント情報の読み取り(read:accounts)</span>の権限を要求します。<br />
+                    これはアカウントの所有確認を行うためのものなので、所有確認の終了後<span class="red-text black">アクセストークンは即刻破棄</span>します。<br />
+                    もしアクセス権を残すことに抵抗がある場合は、<span class="blue-text">oauth/authorized_applications</span>から<span class="red-text black">獅子の黄金 アカウント確認</span>へのアクセス権を削除してください<br />
+                    これによってサービスが利用できなくなることはありません。
+                </p>
+            </div>
+            <div class="card-action">
+                <form>
+                    https://
+                    <div class="input-field inline" style="width: 70%">
+                        <input id="host_domain" name="host_domain" type="text" class="validate" />
+                        <label for="host_domain">インスタンスのドメイン名</label>
+                    </div>
+                    /
+                    <div class="input-field inline">
+                        <input class="waves-effect waves-light btn orange white-text" type="submit" value="OAuth!" formaction="/regulusaurum/jump" formmethod="POST" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
