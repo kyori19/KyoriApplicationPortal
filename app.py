@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, make_response
 
-from mastodon import Mastodon, get_client_keys, generate_oauth_url
+from mastodon import Mastodon, get_client_keys, generate_oauth_url, process_refresh_token
 from tootsaver_data import save_toot, read_saved, remove_data, call_data
 
 root_dir = "/home/portal/app/server"
@@ -21,7 +21,7 @@ def regulusaurum():
 
 @app.route("/regulusaurum/info", methods=["GET"])
 def regulusaurum_info():
-    user_id = request.cookies.get("user_id", None)
+    user_id = request.cookies.get("account_id", None)
     if user_id == None:
         title = "ログイン・利用登録 - EasyTootSaver ~獅子の黄金~"
         requireLogin = request.args.get("requireLogin", default=1, type=int)
@@ -42,16 +42,18 @@ def regulusaurum_jump():
 
 @app.route("/regulusaurum/done", methods=["GET"])
 def regulusaurum_done():
-    access_token = request.args.get("code", default=None, type=str)
+    refresh_token = request.args.get("code", default=None, type=str)
     host_domain = request.cookies.get("host_domain", "")
-    if not access_token == None:
+    client_keys = get_client_keys(root_dir, host_domain)
+    if not refresh_token == None:
+        access_token = process_refresh_token(
+            host_domain, client_keys[0], client_keys[1], refresh_token)
         response = make_response(redirect(url_for("regulusaurum_dashboard")))
-        response.set_cookie("access_token", value=access_token)
-        api = Mastodon(access_token, host_domain)
-        result = api.verify_credentials()
+        api = Mastodon(access_token=access_token, host_domain=host_domain)
+        result = api.verify_credentials().json()
         account_id = result["id"]
         response.set_cookie("account_id", value=account_id)
-        screen_name = result["screen_name"]
+        screen_name = result["username"]
         response.set_cookie("screen_name", screen_name)
         return response
     else:
@@ -60,8 +62,8 @@ def regulusaurum_done():
 
 @app.route("/regulusaurum/dashboard", methods=["GET"])
 def regulusaurum_dashboard():
-    user_id = request.cookies.get("user_id", None)
-    if user_id == None:
+    account_id = request.cookies.get("account_id", None)
+    if account_id == None:
         return redirect(url_for("regulusaurum_info", requireLogin=0))
     else:
         title = "ユーザーページ - EasyTootSaver ~獅子の黄金~"

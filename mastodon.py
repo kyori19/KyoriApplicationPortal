@@ -83,3 +83,18 @@ def register_app(host_domain, client_name, website_url, redirect_uris, scopes):
 
 def generate_oauth_url(host_domain, client_id, redirect_uri, scopes):
     return "https://"+host_domain+"/oauth/authorize?response_type=code&client_id="+client_id+"&redirect_uri="+quote(redirect_uri)+"&scope="+quote(scopes)
+
+
+def process_refresh_token(host_domain, client_id, client_secret, refresh_token):
+    data = {
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "grant_type": "authorization_code",
+        "code": refresh_token,
+        "redirect_uri": "https://app.odakyu.app/regulusaurum/done"
+    }
+    response = requests.post(
+        "https://{host}/oauth/token".format(host=host_domain), data=data)
+    response.raise_for_status()
+    result = response.json()
+    return result["access_token"]
