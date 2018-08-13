@@ -76,6 +76,8 @@ def tuskyex():
     title = "TuskyEx Kyori Build"
     tuskyex_root=root_dir+"/tuskyex"
     version_name_list=os.listdir(tuskyex_root)
+    version_name_list.sort()
+    version_name_list.reverse()
     view_array=[]
     for file_name in version_name_list:
         file_path=tuskyex_root+"/"+file_name
@@ -86,7 +88,7 @@ def tuskyex():
         joker["apk_url"]=url_for("static",filename="apk/"+file_name+".apk")
         joker["content"]=text
         view_array.append(joker)
-    return render_template("tuskyex.html", title=title, view_array=reversed(view_array))
+    return render_template("tuskyex.html", title=title, view_array=view_array)
 
 
 @app.route("/profile", methods=["GET"])
