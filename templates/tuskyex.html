@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="white-text">
+    <h5 class="center-align">TuskyEx Kyori Build</h5>
+    <p>
+        自分と板橋丼の為に作ったmastodonクライアントアプリです<br />
+        ベースは<a href="https://github.com/tuskyapp/Tusky">Tusky</a>です、勝手に使いましたありがとうございます
+    </p>
+    <p>
+        ソースは<a href="https://github.com/kyori19/Tusky">こちら</a>、神によるプルリクをお待ちしております<br />
+        あとだれかREADME書いてくださいおねがいします
+    </p>
+    <blockquote>
+        <div class="valign-wrapper">
+            <i class="material-icons small">info</i><span class="red-text">初回インストール時の注意</span><br />
+        </div>
+        もし他のバージョンの(他の作者の)Tuskyがインストールされている場合、インストール時にエラーが表示されます<br />
+        その際はそのTuskyをアンインストールしてください<br />
+        もし複数個のTuskyをインストールしたいとの要望があれば、対策しますので連絡お願いします
+    </blockquote>
+    {% for item in view_array %}
+        <h5><a href="{{ item.apk_url }}">{{ item.version }}</a></h5>
+        <p>{{ item.content | safe }}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

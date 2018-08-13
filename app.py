@@ -1,9 +1,10 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for, make_response
 
 from mastodon import Mastodon, get_client_keys, generate_oauth_url, process_refresh_token
 from tootsaver_data import save_toot, read_saved, remove_data, call_data
 
-root_dir = "/home/portal/app/server"
+root_dir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 
@@ -68,6 +69,24 @@ def regulusaurum_dashboard():
     else:
         title = "ユーザーページ - EasyTootSaver ~獅子の黄金~"
         return render_template("regulusaurum/dashboard.html", title=title)
+
+
+@app.route("/tuskyex", methods=["GET"])
+def tuskyex():
+    title = "TuskyEx Kyori Build"
+    tuskyex_root=root_dir+"/tuskyex"
+    version_name_list=os.listdir(tuskyex_root)
+    view_array=[]
+    for file_name in version_name_list:
+        file_path=tuskyex_root+"/"+file_name
+        with open(file_path,"r",encoding="utf-8") as input:
+            text=input.read()
+        joker={}
+        joker["version"]=file_name
+        joker["apk_url"]=url_for("static",filename="apk/"+file_name+".apk")
+        joker["content"]=text
+        view_array.append(joker)
+    return render_template("tuskyex.html", title=title, view_array=reversed(view_array))
 
 
 @app.route("/profile", methods=["GET"])

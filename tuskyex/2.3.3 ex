@@ -1,0 +1,9 @@
+<div>
+通知欄に絶対時間表示が適用されない問題を修正<br />
+NowPlaying投稿機能(Android L(5.1)以降対応(だったはず)です)
+</div>
+    <div style="text-indent: 2em">通知欄に存在する通知をもとに再生中の音楽の情報やカバー画像を取得します</div>
+    <div style="text-indent: 2em">アプリによっては正しく取得できない可能性がありますので、その場合は<a href="https://app.odakyu.app/profile">連絡し</a>てください</div>
+    <div style="text-indent: 2em">無関係な通知が混入してしまう場合は<a href="https://app.odakyu.app/profile">連絡し</a>てくだされば例外処理を加えます</div>
+画面下簡易toot機能を追加<br />
+本家の変更を吸収(ブラックテーマに対応、ドロワーに絵文字が適用されるように)
