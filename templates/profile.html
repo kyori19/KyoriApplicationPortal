@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<ul class="collection with-header">
-    <li class="collection-header"><h3>Mastodon Accounts</h3></li>
-    <li class="collection-item"><div>@ars42525@odakyu.app<a href="https://odakyu.app/@ars42525" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@ars42525@itabashi.0j0.jp<a href="https://itabashi.0j0.jp/@ars42525" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@admin@odakyu.app<a href="https://odakyu.app/@admin" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@ar0_yk@mstdn.jp<a href="https://mstdn.jp/@ar0_yk" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@ar0_yk@odakyu.app<a href="https://odakyu.app/@ar0_yk" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@a@odakyu.app<a href="https://odakyu.app/@a" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@kyori@mstdn.jp<a href="https://mstdn.jp/@kyori" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-header"><h3>Twitter</h3></li>
-    <li class="collection-item"><div>@ars42525<a href="https://twitter.com/@ars42525" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>@ar0_yk<a href="https://twitter.com/@ar0_yk" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-header"><h3>Other Contacts</h3></li>
-    <li class="collection-item"><div>Github<a href="https://github.com/kyori19" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
-    <li class="collection-item"><div>kyori.dis@gmail.com<a href="mailto:kyori.dis@gmail.com" class="secondary-content"><i class="material-icons">launch</i></a></div></li>
+<ul class="list-group mt-2 mb-2 ml-1 mr-1">
+    <li class="list-group-item list-group-item-primary">Mastodon Accounts</li>
+    <a href="https://odakyu.app/@ars42525" class="list-group-item list-group-item-action">@ars42525@odakyu.app</a>
+    <a href="https://itabashi.0j0.jp/@ars42525" class="list-group-item list-group-item-action">@ars42525@itabashi.0j0.jp</a>
+    <a href="https://odakyu.app/@admin" class="list-group-item list-group-item-action">@admin@odakyu.app</a>
+    <a href="https://mstdn.jp/@ar0_yk" class="list-group-item list-group-item-action">@ar0_yk@mstdn.jp</a>
+    <a href="https://odakyu.app/@ar0_yk" class="list-group-item list-group-item-action">@ar0_yk@odakyu.app</a>
+    <a href="https://odakyu.app/@a" class="list-group-item list-group-item-action">@a@odakyu.app</a>
+    <a href="https://mstdn.jp/@kyori" class="list-group-item list-group-item-action">@kyori@mstdn.jp</a>
+    <li class="list-group-item list-group-item-danger">Misskey Accounts</li>
+    <a href="https://misskey.xyz/@ar" class="list-group-item list-group-item-action">@ar@misskey.xyz</a>
+    <a href="https://mk.odakyu.app/@a" class="list-group-item list-group-item-action">@a@mk.odakyu.app</a>
+    <li class="list-group-item list-group-item-info">Twitter</li>
+    <a href="https://twitter.com/@ars42525" class="list-group-item list-group-item-action">@ars42525</a>
+    <a href="https://twitter.com/@ar0_yk" class="list-group-item list-group-item-action">@ar0_yk</a>
+    <li class="list-group-item list-group-item-success">Other Contacts</li>
+    <a href="https://github.com/kyori19" class="list-group-item list-group-item-action">Github</a>
+    <a href="mailto:kyori.dis@gmail.com" class="list-group-item list-group-item-action">kyori.dis@gmail.com</a>
 </ul>
 
 {% endblock %}

@@ -12,38 +12,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ url_for('static',filename='materialize.css') }}"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 
-<body class="grey darken-2">
+<body class="bg-dark">
     <header>
         <nav>
-            <div class="nav-wrapper">
-                <a href="/" class="brand-logo valign-wrapper">
-                    <img src="{{ url_for('static',filename='title-logo.png') }}" alt="title logo" height="80%" />
-                </a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul class="right hide-on-med-and-down">
-                    {% include "navigation.html" %}
-                </ul>
-                <ul class="sidenav" id="mobile-demo">
-                    {% include "navigation.html" %}
-                </ul>
+            <div class="navbar navbar-expand-lg navbar-dark" style="background-color: #ee6e73">
+                <a class="navbar-brand" href="/"><img src="{{ url_for('static',filename='title-logo.png') }}" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapse" aria-controls="collapse" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="collapse">
+                    <div class="navbar-nav">
+                        {% include "navigation.html" %}
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
         {% block content %}{% endblock %}
-        <script src="{{ url_for('static',filename='materialize.js') }}"></script>
-        <script>
-            $(document).ready(function () {
-                $('.sidenav').sidenav();
-            });
-        </script>
 </body>
 
 </html>
