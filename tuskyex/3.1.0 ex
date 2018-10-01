@@ -1,0 +1,6 @@
+実況モードの実装<br/>
+プロフィール画面での固定投稿表示に対応<br/>
+Misskeyの投稿リンクをアプリ内で開けるように改善<br/>
+ギザギザメーカーの実装<br/>
+quote_id式の引用に対応(biwakodon.com,dtp-mstdn.jp,odakyu.app,seichi.work)<br/>
+seichi.workでの限定公開対応
