@@ -1,0 +1,9 @@
+通信制限モードを実装<br />
+ - モバイルネットワークでの通信を削減できます<br />
+限定公開の仕様変更に対応<br />
+ - odakyu.app,itabashi.0j0.jp(unleakable) seichi.work(limited)<br />
+アクセストークンを入力してログインする機能を追加(隠し機能)<br />
+白テーマで実況モードアクティブ時の文字色を修正<br />
+限定公開・ダイレクトの投稿で…メニューを押すとクラッシュする不具合を修正(<a href="https://github.com/tuskyapp/Tusky/pull/909">#909</a>)<br />
+行末のリンクの当たり判定が大きすぎる問題を修正(<a href="https://github.com/tuskyapp/Tusky/issues/846">#846</a>)(<a href="https://github.com/tuskyapp/Tusky/pull/916">#916</a>)<br />
+About画面を更新<br />
